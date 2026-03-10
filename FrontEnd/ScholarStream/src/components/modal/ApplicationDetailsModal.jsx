@@ -28,7 +28,7 @@ const ApplicationDetailsModal = ({ closeModal, isOpen, application }) => {
         <div className="flex min-h-full items-center justify-center p-4">
           <DialogPanel
             transition
-            className="w-full max-w-fit bg-white p-6 backdrop-blur-2xl duration-300 ease-out data-closed:transform-[scale(95%)] data-closed:opacity-0 shadow-xl rounded-2xl"
+            className="w-full max-w-fit bg-base-100 p-6 backdrop-blur-2xl duration-300 ease-out data-closed:transform-[scale(95%)] data-closed:opacity-0 shadow-xl rounded-2xl border border-base-300"
           >
             <DialogTitle
               as="h3"
@@ -49,7 +49,7 @@ const ApplicationDetailsModal = ({ closeModal, isOpen, application }) => {
 
               <div className="flex-1 space-y-2">
                 <h3 className="text-xl font-semibold">{scholarshipName}</h3>
-                <p className="text-gray-500">{universityName}</p>
+                <p className="text-base-content/60">{universityName}</p>
 
                 <div className="flex flex-wrap gap-2 mt-2 items-center">
                   <span className="badge badge-outline ">{degree}</span>
@@ -95,46 +95,43 @@ const ApplicationDetailsModal = ({ closeModal, isOpen, application }) => {
 
               <div className="grid md:grid-cols-3 gap-4">
                 <div className="bg-base-200 p-4 rounded-lg">
-                  <p className="text-sm text-gray-500">Application Fees</p>
-                  <p className="font-bold">${applicationFees}</p>
+                  <p className="text-sm text-base-content/60">
+                    Application Fees
+                  </p>
+                  <p className="text-sm font-semibold">${applicationFees}</p>
                 </div>
-
-                <div className="bg-base-200 p-4 rounded-lg">
-                  <p className="text-sm text-gray-500">Tuition Fees</p>
-                  <p className="font-bold">${tuitionFees}</p>
+                <div className="flex justify-between">
+                  <p className="text-sm text-base-content/60">Tuition Fees</p>
+                  <p className="text-sm font-semibold">${tuitionFees}</p>
                 </div>
-
-                <div className="bg-base-200 p-4 rounded-lg">
-                  <p className="text-sm text-gray-500">Service Charge</p>
-                  <p className="font-bold">${serviceCharge}</p>
+                <div className="flex justify-between">
+                  <p className="text-sm text-base-content/60">Service Charge</p>
+                  <p className="text-sm font-semibold">${serviceCharge}</p>
                 </div>
               </div>
             </div>
 
-            <div className="divider"></div>
-
             {/* Status Section */}
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-              <div className="flex gap-4 flex-wrap">
+            <div className="mt-6 border-t border-base-200 pt-6">
+              <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <p className="text-sm text-gray-500">Application Status</p>
+                  <p className="text-sm text-base-content/60">
+                    Application Status
+                  </p>
                   <span
-                    className={`badge ${
-                      applicationStatus === "Pending"
-                        ? "badge-warning"
-                        : applicationStatus === "Processing"
-                          ? "badge-info"
-                          : applicationStatus === "Completed"
-                            ? "badge-success"
-                            : "badge-error"
+                    className={`inline-block mt-1 px-3 py-1 text-xs font-semibold rounded-full ${
+                      applicationStatus === "pending"
+                        ? "bg-yellow-100 text-yellow-700"
+                        : applicationStatus === "rejected"
+                          ? "bg-red-100 text-red-700"
+                          : "bg-green-100 text-green-700"
                     }`}
                   >
                     {applicationStatus}
                   </span>
                 </div>
-
                 <div>
-                  <p className="text-sm text-gray-500">Payment Status</p>
+                  <p className="text-sm text-base-content/60">Payment Status</p>
                   <span
                     className={`badge ${
                       paymentStatus === "Paid" ? "badge-success" : "badge-error"

@@ -32,7 +32,7 @@ const Card = ({ scholarship }) => {
         <h2 className="text-lg font-bold line-clamp-2">{scholarshipName}</h2>
 
         {/* University */}
-        <p className="text-sm text-gray-500">{universityName}</p>
+        <p className="text-sm text-base-content/60">{universityName}</p>
 
         {/* Location */}
         <p className="text-sm">

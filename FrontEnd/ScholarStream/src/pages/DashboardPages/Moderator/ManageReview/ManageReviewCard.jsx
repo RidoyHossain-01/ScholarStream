@@ -41,14 +41,18 @@ const ManageReviewCard = ({ review, refetch }) => {
           />
           <div>
             <p className="font-semibold">{review?.studentName}</p>
-            <p className="text-xs text-gray-400">{review?.studentEmail}</p>
+            <p className="text-xs text-base-content/50">
+              {review?.studentEmail}
+            </p>
           </div>
         </div>
 
         {/* Scholarship Info */}
         <div>
           <h3 className="font-semibold text-lg">{review?.scholarshipName}</h3>
-          <p className="text-sm text-gray-500">{review?.universityName}</p>
+          <p className="text-sm text-base-content/60">
+            {review?.universityName}
+          </p>
         </div>
 
         {/* Rating */}
@@ -59,17 +63,21 @@ const ManageReviewCard = ({ review, refetch }) => {
               className={
                 star <= review?.ratingPoint
                   ? "text-yellow-400"
-                  : "text-gray-300"
+                  : "text-base-content/20"
               }
             />
           ))}
         </div>
 
         {/* Review Comment */}
-        <p className="text-sm text-gray-700">{review?.reviewComment}</p>
+        <p className="text-sm text-base-content/80 text-justify\">
+          {review?.reviewComment}
+        </p>
 
         {/* Review Date */}
-        <p className="text-xs text-gray-400">Posted on {review?.reviewDate}</p>
+        <p className="text-xs text-base-content/50">
+          Posted on {review?.reviewDate}
+        </p>
       </div>
 
       {/* Delete Button */}

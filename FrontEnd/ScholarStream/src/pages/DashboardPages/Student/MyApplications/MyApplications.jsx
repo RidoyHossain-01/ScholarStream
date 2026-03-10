@@ -5,6 +5,7 @@ import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import toast from "react-hot-toast";
 import MyApplicationCard from "./MyApplicationCard";
 import Loader from "../../../../components/shared/Loader";
+import ErrorPage from "../../../Error/ErrorPage";
 
 const MyApplications = () => {
   const { user } = useAuth();
@@ -31,10 +32,10 @@ const MyApplications = () => {
     return <Loader />;
   }
   if (isError) {
-    return "Error happened";
+    return <ErrorPage />;
   }
   return (
-    <div className="w-full">
+    <div className="w-full h-screen">
       {/* Page Title */}
       <h2 className="text-2xl font-bold mb-6">My Applications</h2>
 
@@ -60,7 +61,10 @@ const MyApplications = () => {
 
             {applications.length === 0 && (
               <tr>
-                <td colSpan="7" className="text-center py-8 text-gray-400">
+                <td
+                  colSpan="7"
+                  className="text-center py-8 text-base-content/50"
+                >
                   No applications found
                 </td>
               </tr>

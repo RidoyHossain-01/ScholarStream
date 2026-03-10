@@ -58,7 +58,7 @@ const ApplicationFeedback = ({
         <div className="flex min-h-full items-center justify-center p-4">
           <DialogPanel
             transition
-            className="w-full max-w-fit bg-white p-6 backdrop-blur-2xl duration-300 ease-out data-closed:transform-[scale(95%)] data-closed:opacity-0 shadow-xl rounded-2xl"
+            className="w-full max-w-fit bg-base-100 p-6 backdrop-blur-2xl duration-300 ease-out data-closed:transform-[scale(95%)] data-closed:opacity-0 shadow-xl rounded-2xl border border-base-300"
           >
             <DialogTitle
               as="h3"
@@ -80,7 +80,7 @@ const ApplicationFeedback = ({
                       required: "Enter a valid feedback",
                     })}
                     className={clsx(
-                      "mt-3 block w-full resize-none rounded-lg border-2 bg-white/5 px-3 py-1.5 text-sm/6 ",
+                      "mt-3 block w-full resize-none rounded-lg border border-base-300 bg-base-200 px-3 py-1.5 text-sm/6",
                       "focus:not-data-focus:outline-none data-focus:outline-2 data-focus:-outline-offset-2 data-focus:outline-white/25",
                     )}
                     rows={3}

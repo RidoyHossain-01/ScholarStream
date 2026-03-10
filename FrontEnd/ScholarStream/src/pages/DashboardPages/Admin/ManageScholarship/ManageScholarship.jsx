@@ -6,9 +6,12 @@ import axios from "axios";
 import Loader from "../../../../components/shared/Loader";
 import ManageScholarshipCard from "./ManageScholarshipCard";
 import { Link } from "react-router";
+import ErrorPage from "../../../Error/ErrorPage";
+import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 
 const ManageScholarships = () => {
   const { user, loading } = useAuth();
+  const axiosSecure = useAxiosSecure();
 
   const {
     data: scholarships,
@@ -16,12 +19,10 @@ const ManageScholarships = () => {
     isError,
     refetch,
   } = useQuery({
-    queryKey: ["manage-scholarship", user?.email],
+    queryKey: ["manage-scholarship-admin", user?.email],
     queryFn: async () => {
-      const { data } = await axios(
-        `${import.meta.env.VITE_base_URL}/all-scholarship`,
-      );
-      return data.result;
+      const { data } = await axiosSecure(`/all-scholarship-admin`);
+      return data;
     },
   });
 
@@ -29,7 +30,7 @@ const ManageScholarships = () => {
     return <Loader />;
   }
   if (isError) {
-    return "Error happened";
+    return <ErrorPage />;
   }
   return (
     <div className="w-full">
@@ -64,7 +65,10 @@ const ManageScholarships = () => {
           <tbody>
             {scholarships.length === 0 ? (
               <tr>
-                <td colSpan="9" className="text-center py-10 text-gray-500">
+                <td
+                  colSpan="9"
+                  className="text-center py-10 text-base-content/50"
+                >
                   No Scholarships Found
                 </td>
               </tr>

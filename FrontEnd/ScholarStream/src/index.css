@@ -2,18 +2,9 @@
 
 @import "tailwindcss";
 
-body {
-  font-family: "Inter", sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
-  background-color: #f2f2f2;
-}
-.poppins-original {
-  font-family: "Poppins", sans-serif;
-  font-style: normal;
-}
-
 @plugin "daisyui";
+
+/* ── Light Theme ── */
 @plugin "daisyui/theme" {
   name: "light";
   default: true;
@@ -21,11 +12,52 @@ body {
   --color-primary: #2c344e;
   --color-secondary: #4a5568;
   --color-accent: #ab2330;
-  /* --color-accent:#9B1C31; */
-  /* --color-accent:#800020; */
+
+  --color-base-100: #ffffff;
+  --color-base-200: #f3f4f6;
+  --color-base-300: #e5e7eb;
+  --color-base-content: #1f2937;
 }
+
+/* ── Dark Theme ── */
+@plugin "daisyui/theme" {
+  name: "dark";
+
+  --color-primary: #818cf8;
+  --color-secondary: #94a3b8;
+  --color-accent: #e2545f;
+
+  --color-base-100: #1a1f2e;
+  --color-base-200: #141824;
+  --color-base-300: #0e111a;
+  --color-base-content: #e2e8f0;
+
+  --color-neutral: #2d3748;
+  --color-neutral-content: #e2e8f0;
+
+  --color-info: #38bdf8;
+  --color-success: #4ade80;
+  --color-warning: #fbbf24;
+  --color-error: #f87171;
+}
+
+/* ── Base ── */
+body {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  background-color: var(--color-base-100);
+  color: var(--color-base-content);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.poppins-original {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+}
+
 a.active {
-  @apply text-primary font-bold  underline underline-offset-4;
+  @apply text-accent font-bold underline underline-offset-4;
 }
 
 .animation {

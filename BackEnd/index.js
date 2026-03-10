@@ -121,34 +121,107 @@ const verifyModerator = async(req,res,next)=>{
 
 
     //getting all the scholarships
-    app.get("/all-scholarship", async (req, res) => {
-const {limit=0,skip=0} = req.query;
-const searchText = req.query.search;
-// console.log(req.query);
 
-const query = {};
-if (searchText) {
+
+//     app.get("/all-scholarship", async (req, res) => {
+// const {limit=0,skip=0,category,degree} = req.query;
+// const searchText = req.query.search;
+// // console.log(req.query);
+
+// const query = {};
+// if (searchText) {
  
 
-  query.$or=[
-    {scholarshipName:{$regex:searchText,$options:'i'}},
-    {universityName:{$regex:searchText,$options:'i'}},
-    {degree:{$regex:searchText,$options:'i'}}
+//   query.$or=[
+//     {scholarshipName:{$regex:searchText,$options:'i'}},
+//     {universityName:{$regex:searchText,$options:'i'}},
+//     {degree:{$regex:searchText,$options:'i'}}
 
-  ]
+//   ]
  
   
-}
+// }
+
+// if(category){
+//   query.scholarshipCategory = category;
+// }
+
+// if(degree){
+//   query.degree = degree;
+// }
 
 
 
-      const result = await scholarShipCollection.find(query).limit(Number(limit)).skip(Number(skip)).toArray();
-
-const count = await scholarShipCollection.countDocuments()
 
 
-      res.send({result, total:count});
-    });
+
+
+
+//       const result = await scholarShipCollection.find(query).limit(Number(limit)).skip(Number(skip)).toArray();
+
+// const count = await scholarShipCollection.countDocuments()
+
+
+//       res.send({result, total:count});
+//     });
+
+
+
+
+
+
+
+
+
+//getting all scholarship data code from ClaudeAI(refined)
+app.get("/all-scholarship", async (req, res) => {
+  try {
+    const { limit = 8, skip = 0, category, degree, search = "" } = req.query;
+
+    const query = {};
+
+    if (search) {
+      query.$or = [
+        { scholarshipName: { $regex: search, $options: "i" } },
+        { universityName: { $regex: search, $options: "i" } },
+        { degree: { $regex: search, $options: "i" } },
+      ];
+    }
+
+    if (category) query.scholarshipCategory = category;
+    if (degree) query.degree = degree;
+
+    const result = await scholarShipCollection
+      .find(query)
+      .skip(Number(skip))
+      .limit(Number(limit))
+      .toArray();
+
+    const count = await scholarShipCollection.countDocuments(query); // ✅ fixed
+
+    res.send({ result, total: count });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send({ message: "Something went wrong" });
+  }
+});
+
+
+
+//get all scholarship data as admin
+app.get('/all-scholarship-admin',verifyJWT,verifyAdmin, async (req,res)=>{
+  try {
+    const result = await scholarShipCollection.find().toArray()
+    res.send(result)
+  } catch (error) {
+    console.error(error)
+    res.status(500).send({message:"Something went wrong"})
+  }
+})
+
+
+
+
 
     //getting scholarship details of one data
     app.get("/scholarship/:id",verifyJWT, async (req, res) => {
@@ -525,10 +598,10 @@ app.get('/scholarships/subjects/stats',verifyJWT,verifyAdmin,async(req,res)=>{
     });
 
     // Send a ping to confirm a successful connection
-    // await client.db("admin").command({ ping: 1 });
-    // console.log(
-    //   "Pinged your deployment. You successfully connected to MongoDB!",
-    // );
+    await client.db("admin").command({ ping: 1 });
+    console.log(
+      "Pinged your deployment. You successfully connected to MongoDB!",
+    );
   } finally {
     // Ensures that the client will close when you finish/error
     // await client.close();

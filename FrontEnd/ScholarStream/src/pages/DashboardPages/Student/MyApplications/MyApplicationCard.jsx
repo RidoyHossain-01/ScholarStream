@@ -79,7 +79,7 @@ const MyApplicationCard = ({ app, refetch }) => {
           {app?.feedback ? (
             <span className="text-success font-medium ">{app?.feedback}</span>
           ) : (
-            <span className="text-gray-400 italic">No feedback</span>
+            <span className="text-base-content/50 italic">No feedback</span>
           )}
         </td>
 

@@ -6,6 +6,7 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import { imageUpload } from "../../utils";
 import toast from "react-hot-toast";
+import ErrorPage from "../../pages/Error/ErrorPage";
 
 const EditScholarshipModal = ({
   closeModal,
@@ -115,7 +116,7 @@ const EditScholarshipModal = ({
   };
 
   if (isError) {
-    return "Error Happened";
+    return <ErrorPage />;
   }
 
   return (
@@ -129,7 +130,7 @@ const EditScholarshipModal = ({
         <div className="flex items-center justify-center p-4 min-h-screen ">
           <DialogPanel
             transition
-            className="min-w-fit max-w-md bg-white p-6 backdrop-blur-2xl duration-300 ease-out data-closed:transform-[scale(95%)] data-closed:opacity-0 shadow-xl rounded-2xl"
+            className="min-w-fit max-w-md bg-base-100 p-6 border border-base-300 backdrop-blur-2xl duration-300 ease-out data-closed:transform-[scale(95%)] data-closed:opacity-0 shadow-xl rounded-2xl"
           >
             {/* <DialogTitle as='h3'  className='text-lg font-medium text-center leading-6 text-primary'>
             Scholar<span className="text-accent">Stream</span>

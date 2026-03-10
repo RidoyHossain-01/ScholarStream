@@ -21,19 +21,9 @@ const Button = ({
                animation
                cursor-pointer
                px-4
-              
-               text-white
-               ${full_Width ? "w-full" : ``}
-               
-          ${outline ? "bg-white" : "bg-accent"}
-          ${outline ? "border-black" : "bg-accent"}
-          ${outline ? "text-black" : "text-white"}
-          ${outline ? "hover:bg-accent" : ""}
-          ${outline ? "hover:text-white" : ""}
-          ${small ? "text-sm" : "text-md"}
-          ${small ? "py-1" : "py-3"}
-          ${small ? "font-light" : "font-semibold"}
-          ${small ? "border" : "border-2"}
+          ${full_Width ? "w-full" : ``}
+          ${outline ? "bg-transparent border-accent text-accent hover:bg-accent hover:text-white" : "bg-accent text-white border-accent"}
+          ${small ? "text-sm py-1 font-light border" : "text-md py-3 font-semibold border-2"}
                `}
     >
       <span className="flex items-center gap-2 justify-center">

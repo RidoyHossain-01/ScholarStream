@@ -5,6 +5,7 @@ import useAuth from "../../../../hooks/useAuth";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import Loader from "../../../../components/shared/Loader";
 import ApplicationCard from "./ApplicationCard";
+import ErrorPage from "../../../Error/ErrorPage";
 
 const ReviewApplications = () => {
   const axiosSecure = useAxiosSecure();
@@ -30,7 +31,7 @@ const ReviewApplications = () => {
     return <Loader />;
   }
   if (isError) {
-    return <div>Error Happened </div>;
+    return <ErrorPage/>;
   }
   return (
     <div className="w-full p-4 md:p-6 bg-base-200 min-h-screen">

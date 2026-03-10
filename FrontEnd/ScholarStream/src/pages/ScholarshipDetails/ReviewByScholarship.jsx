@@ -55,7 +55,9 @@ const ReviewByScholarship = ({ id }) => {
                 />
                 <div>
                   <p className="font-semibold">{review?.studentName}</p>
-                  <p className="text-xs text-gray-400">{review.studentEmail}</p>
+                  <p className="text-xs text-base-content/50">
+                    {review.studentEmail}
+                  </p>
                 </div>
               </div>
 
@@ -67,17 +69,19 @@ const ReviewByScholarship = ({ id }) => {
                     className={
                       star <= review?.ratingPoint
                         ? "text-yellow-400"
-                        : "text-gray-300"
+                        : "text-base-content/20"
                     }
                   />
                 ))}
               </div>
 
               {/* Review Comment */}
-              <p className="text-sm text-gray-700">{review?.reviewComment}</p>
+              <p className="text-sm text-base-content/80">
+                {review?.reviewComment}
+              </p>
 
               {/* Review Date */}
-              <p className="text-xs text-gray-400">
+              <p className="text-xs text-base-content/50">
                 Posted on {review?.reviewDate}
               </p>
             </div>

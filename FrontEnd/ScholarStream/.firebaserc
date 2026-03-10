@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "default": "scholar-stream-original",
+    "prod": "scholar-stream-original"
+  },
+  "targets": {},
+  "etags": {}
+}

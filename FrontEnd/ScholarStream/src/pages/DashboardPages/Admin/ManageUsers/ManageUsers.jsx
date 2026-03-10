@@ -5,6 +5,7 @@ import useRole from "../../../../hooks/useRole";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import UsersCard from "./UsersCard";
 import Loader from "../../../../components/shared/Loader";
+import ErrorPage from "../../../Error/ErrorPage";
 
 const ManageUsers = () => {
   const [roleFilter, setRoleFilter] = useState("All");
@@ -34,7 +35,7 @@ const ManageUsers = () => {
     return <Loader />;
   }
   if (isError) {
-    return "Error Happend";
+    return <ErrorPage />;
   }
 
   return (
@@ -78,7 +79,10 @@ const ManageUsers = () => {
 
             {filteredUsers.length === 0 && (
               <tr>
-                <td colSpan="5" className="text-center py-8 text-gray-400">
+                <td
+                  colSpan="5"
+                  className="text-center py-8 text-base-content/50"
+                >
                   No users found
                 </td>
               </tr>

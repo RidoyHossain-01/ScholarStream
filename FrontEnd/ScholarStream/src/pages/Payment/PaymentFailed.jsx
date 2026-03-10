@@ -11,7 +11,7 @@ const PaymentFailed = () => {
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
-        className="bg-white shadow-2xl rounded-2xl p-8 md:p-12 max-w-lg w-full text-center"
+        className="bg-base-100 shadow-2xl rounded-2xl p-8 md:p-12 max-w-lg w-full text-center border border-base-300"
       >
         {/* Failed Icon */}
         <motion.div
@@ -24,17 +24,17 @@ const PaymentFailed = () => {
         </motion.div>
 
         {/* Title */}
-        <h1 className="text-2xl md:text-3xl font-bold mt-6 text-gray-800">
+        <h1 className="text-2xl md:text-3xl font-bold mt-6 text-base-content">
           Payment Failed
         </h1>
 
         {/* Message */}
-        <p className="text-gray-600 mt-3 text-sm md:text-base">
+        <p className="text-base-content/70 mt-3 text-sm md:text-base">
           Unfortunately, your payment was not completed. This may have happened
           due to cancellation or a transaction issue.
         </p>
 
-        <p className="text-gray-500 text-sm mt-2">
+        <p className="text-base-content/50 text-sm mt-2">
           You can still find your application and pay from your dashboard.
         </p>
 

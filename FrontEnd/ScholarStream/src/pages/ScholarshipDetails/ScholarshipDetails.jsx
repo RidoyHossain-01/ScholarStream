@@ -168,7 +168,7 @@ const ScholarshipDetails = () => {
               <h1 className="text-2xl md:text-3xl font-bold">
                 {scholarshipName}
               </h1>
-              <p className="text-gray-500 mt-1">{universityName}</p>
+              <p className="text-base-content/60 mt-1">{universityName}</p>
             </div>
 
             {/* Badges */}

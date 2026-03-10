@@ -48,7 +48,7 @@ const PaymentSuccess = () => {
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
-        className="bg-white shadow-2xl rounded-2xl p-8 md:p-12 max-w-lg w-full text-center"
+        className="bg-base-100 shadow-2xl rounded-2xl p-8 md:p-12 max-w-lg w-full text-center border border-base-300"
       >
         {/* Success Icon */}
         <motion.div
@@ -61,12 +61,12 @@ const PaymentSuccess = () => {
         </motion.div>
 
         {/* Title */}
-        <h1 className="text-2xl md:text-3xl font-bold mt-6 text-gray-800">
+        <h1 className="text-2xl md:text-3xl font-bold mt-6 text-base-content">
           Payment Successful!
         </h1>
 
         {/* Message */}
-        <p className="text-gray-600 mt-3 text-sm md:text-base">
+        <p className="text-base-content/70 mt-3 text-sm md:text-base">
           Your application payment at {universityName} for the {scholarshipName}{" "}
           has been completed successfully. You can now track your scholarship
           application status from your dashboard.

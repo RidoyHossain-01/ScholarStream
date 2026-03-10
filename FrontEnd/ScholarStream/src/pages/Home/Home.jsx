@@ -5,6 +5,7 @@ import Banner from "./HomePageElements/Banner/Banner";
 import Container from "../../components/shared/Container";
 import TopScholarships from "./HomePageElements/TopScholarships/TopScholarships";
 import Heading from "../../components/shared/Heading";
+import Partners from "../../components/Partners";
 
 const Home = () => {
   return (
@@ -16,7 +17,7 @@ const Home = () => {
 
       {/* 2️⃣ Search Scholarships */}
       <Container>
-        <section className="px-1">
+        <section className="px-1 py-8">
           <div className="bg-base-200 p-6 rounded-xl flex flex-col md:flex-row items-center gap-4">
             <input
               type="text"
@@ -42,7 +43,7 @@ const Home = () => {
 
       {/* 5️⃣ Success Stories / Testimonials */}
       <Container>
-        <section className="p-1">
+        <section className="py-8">
           <h2 className="text-2xl md:text-4xl font-bold mb-6">
             Success Stories
           </h2>
@@ -55,7 +56,7 @@ const Home = () => {
                 "I got a fully funded scholarship thanks to ScholarStream!"
               </p>
               <h4 className="font-bold">Hridoy Hossain</h4>
-              <p className="text-sm text-gray-500">ETH Zurich</p>
+              <p className="text-sm text-base-content/60">ETH Zurich</p>
             </motion.div>
             <motion.div
               className="bg-base-100 p-6 shadow-lg rounded-xl"
@@ -65,7 +66,7 @@ const Home = () => {
                 "ScholarStream helped me find my dream university abroad."
               </p>
               <h4 className="font-bold">Raiyan Ahmed</h4>
-              <p className="text-sm text-gray-500">Sciences Po</p>
+              <p className="text-sm text-base-content/60">Sciences Po</p>
             </motion.div>
             <motion.div
               className="bg-base-100 p-6 shadow-lg rounded-xl"
@@ -75,7 +76,9 @@ const Home = () => {
                 "The platform is super easy to use and very reliable."
               </p>
               <h4 className="font-bold">Sara Khan</h4>
-              <p className="text-sm text-gray-500">University of Tokyo</p>
+              <p className="text-sm text-base-content/60">
+                University of Tokyo
+              </p>
             </motion.div>
           </div>
         </section>
@@ -134,22 +137,29 @@ const Home = () => {
         </section>
       </Container>
 
+      {/* Our Partners */}
+      <Container>
+        <section className="py-8">
+          <Partners />
+        </section>
+      </Container>
+
       {/* 8️⃣ Newsletter */}
-      <section className="px-1  text-center py-12 bg-primary text-white rounded-xl">
+      <section className="px-1 text-center py-12 bg-primary text-primary-content rounded-xl">
         <Container>
           <h2 className="text-3xl md:text-5xl font-bold mb-4">
             Subscribe for Updates
           </h2>
-          <p className="mb-6">
+          <p className="mb-6 opacity-80">
             Get the latest scholarships directly in your inbox
           </p>
           <div className="flex flex-col md:flex-row justify-center items-center gap-4">
             <input
               type="email"
               placeholder="Enter your email"
-              className="input input-bordered flex-1 max-w-md"
+              className="input input-bordered flex-1 max-w-md bg-white/10 text-primary-content placeholder:text-primary-content/60 border-white/30"
             />
-            <button className="btn btn-secondary">Subscribe</button>
+            <button className="btn btn-accent">Subscribe</button>
           </div>
         </Container>
       </section>

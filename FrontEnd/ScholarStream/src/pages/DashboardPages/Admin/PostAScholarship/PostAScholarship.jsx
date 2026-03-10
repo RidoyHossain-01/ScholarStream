@@ -11,6 +11,7 @@ import Button from "../../../../components/shared/Button/Button";
 import { imageUpload } from "../../../../utils";
 import Loader from "../../../../components/shared/Loader";
 import { useNavigate } from "react-router";
+import ErrorPage from "../../../Error/ErrorPage";
 
 const PostAScholarship = () => {
   const [posting, isPosting] = useState(false);
@@ -135,7 +136,7 @@ const PostAScholarship = () => {
     return <Loader />;
   }
   if (isError) {
-    return "Error happened";
+    return <ErrorPage/>;
   }
 
   return (

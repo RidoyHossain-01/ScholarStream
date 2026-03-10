@@ -47,7 +47,7 @@ const ManageReview = () => {
 
         {/* Empty State */}
         {reviews.length === 0 && (
-          <div className="col-span-full text-center py-12 text-gray-400">
+          <div className="col-span-full text-center py-12 text-base-content/50">
             No reviews available.
           </div>
         )}

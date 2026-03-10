@@ -5,6 +5,7 @@ import StudentMenu from "../pages/DashboardPages/MenuByRole/StudentMenu";
 import { FaRegUserCircle } from "react-icons/fa";
 import useRole from "../hooks/useRole";
 import Loader from "../components/shared/Loader";
+import ThemeToggle from "../components/shared/ThemeToggle/ThemeToggle";
 
 const DashBoard = () => {
   const [role, isRoleLoading] = useRole();
@@ -13,40 +14,44 @@ const DashBoard = () => {
   }
 
   return (
-    <div className="drawer lg:drawer-open">
+    <div className="drawer lg:drawer-open bg-base-100 text-base-content min-h-screen">
       <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
-      <div className="drawer-content">
+      <div className="drawer-content flex flex-col">
         {/* Navbar */}
-        <nav className="navbar w-full bg-base-300">
-          <label
-            htmlFor="my-drawer-4"
-            aria-label="open sidebar"
-            className="btn btn-square btn-ghost"
-          >
-            {/* Sidebar toggle icon */}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              strokeLinejoin="round"
-              strokeLinecap="round"
-              strokeWidth="2"
-              fill="none"
-              stroke="currentColor"
-              className="my-1.5 inline-block size-4"
+        <nav className="navbar w-full bg-base-100 border-b border-base-300 px-4 justify-between">
+          <div className="flex items-center gap-2">
+            <label
+              htmlFor="my-drawer-4"
+              aria-label="open sidebar"
+              className="btn btn-square btn-ghost lg:hidden"
             >
-              <path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z"></path>
-              <path d="M9 4v16"></path>
-              <path d="M14 10l2 2l-2 2"></path>
-            </svg>
-          </label>
-          <div className="px-4 font-semibold ">
-            <span className="text-accent text-lg">D</span>ashboard
+              {/* Sidebar toggle icon */}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                strokeLinejoin="round"
+                strokeLinecap="round"
+                strokeWidth="2"
+                fill="none"
+                stroke="currentColor"
+                className="size-5"
+              >
+                <path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z"></path>
+                <path d="M9 4v16"></path>
+                <path d="M14 10l2 2l-2 2"></path>
+              </svg>
+            </label>
+            <div className="font-semibold text-lg flex items-center gap-1">
+              <span className="text-accent">D</span>ashboard
+            </div>
+          </div>
+          <div className="flex items-center gap-4">
+            <ThemeToggle />
           </div>
         </nav>
 
         {/* Page content here */}
-        {/* outlet will render here */}
-        <div className="p-4">
+        <div className="p-4 flex-1">
           <Outlet />
         </div>
       </div>

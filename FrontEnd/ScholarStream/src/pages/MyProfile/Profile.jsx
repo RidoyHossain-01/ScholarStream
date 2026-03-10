@@ -2,11 +2,22 @@ import { FaUserEdit, FaKey } from "react-icons/fa";
 import useAuth from "../../hooks/useAuth";
 import useRole from "../../hooks/useRole";
 import Loader from "../../components/shared/Loader";
+import { useState } from "react";
+import EditProfileModal from "../../components/modal/EditProfileModal";
 
 const Profile = () => {
   // Example fallback user (remove when using real auth user)
   const { user } = useAuth();
   const [role, isRoleLoading] = useRole();
+   let [isOpen, setIsOpen] = useState (false)
+  
+    function openModal() {
+      setIsOpen(true)
+    }
+  
+    function closeModal() {
+      setIsOpen(false)
+    }
 
   //   console.log(role);
   if (isRoleLoading) {
@@ -32,10 +43,10 @@ const Profile = () => {
 
               <h2 className="text-2xl font-bold">{user?.name}</h2>
 
-              <p className="text-gray-500">{user?.email}</p>
+              <p className="">{user?.email}</p>
 
               <div>
-                <span className="badge badge-primary badge-outline px-4 py-3 text-sm">
+                <span className="badge badge-primary badge-outline text-accent px-4 py-3 text-sm">
                   {role}
                 </span>
               </div>
@@ -47,10 +58,11 @@ const Profile = () => {
 
           {/* Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-end">
-            <button className="btn btn-primary gap-2">
+            <button onClick={()=>openModal()} className="btn btn-primary gap-2">
               <FaUserEdit />
               Update Profile
             </button>
+            <EditProfileModal isOpen={isOpen} closeModal={closeModal}/>
 
             <button className="btn btn-outline btn-secondary gap-2">
               <FaKey />

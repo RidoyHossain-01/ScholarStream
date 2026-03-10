@@ -68,19 +68,19 @@ const AdminHome = () => {
     <div>
       <Heading title={"Admin Panel"} center={true} />
 
-      <div className="p-6 bg-slate-50 min-h-screen flex flex-col md:flex-row md:justify-around">
-        <div className="card shadow-sm h-36 border">
+      <div className="p-6 bg-base-200 min-h-screen flex flex-col md:flex-row md:justify-around rounded-xl">
+        <div className="card shadow-sm h-36 border border-base-300 bg-base-100">
           <div className="card-body flex items-center">
             <h3 className="text-xl"> Total Scholarship</h3>
             <p className="text-5xl font-bold text-accent">{scholarshipCount}</p>
           </div>
         </div>
         <div>
-          <h1 className="text-3xl font-bold mb-8 text-slate-800">
+          <h1 className="text-3xl font-bold mb-8 text-base-content">
             Scholarship Degree Distribution
           </h1>
 
-          <div className="bg-white shadow-lg rounded-2xl p-6 max-w-3xl ">
+          <div className="bg-base-100 shadow-lg border border-base-300 rounded-2xl p-6 max-w-3xl">
             <ResponsiveContainer width="100%" height={400}>
               <PieChart>
                 <Pie

@@ -25,6 +25,8 @@ import ErrorPage from "../pages/Error/ErrorPage";
 import StudentRoute from "./StudentRoute";
 import AboutUs from "../pages/AboutUs/AboutUs";
 import DashboardHome from "./../pages/DashboardPages/DashboardHomepage/DashboardHome";
+import Blogs from "../pages/Blogs/Blogs";
+import BlogDetails from "../pages/Blogs/BlogDetails";
 
 export const router = createBrowserRouter([
   {
@@ -40,7 +42,22 @@ export const router = createBrowserRouter([
         path: "all-scholarships",
         Component: AllScholarships,
       },
-
+      {
+        path: "blogs",
+        element: (
+          <PrivateRoute>
+            <Blogs />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "blogs/:id",
+        element: (
+          <PrivateRoute>
+            <BlogDetails />
+          </PrivateRoute>
+        ),
+      },
       {
         path: "scholarship/:id",
         element: (

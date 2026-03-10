@@ -42,7 +42,9 @@ const MyReviewCard = ({ review, refetch }) => {
         {/* Scholarship & University */}
         <div>
           <h3 className="font-semibold text-lg">{review.scholarshipName}</h3>
-          <p className="text-sm text-gray-500">{review.universityName}</p>
+          <p className="text-sm text-base-content/70">
+            {review.universityName}
+          </p>
         </div>
 
         {/* Rating */}
@@ -51,20 +53,24 @@ const MyReviewCard = ({ review, refetch }) => {
             <FaStar
               key={star}
               className={
-                star <= review.ratingPoint ? "text-yellow-400" : "text-gray-300"
+                star <= review.ratingPoint
+                  ? "text-yellow-400"
+                  : "text-base-content/20"
               }
             />
           ))}
         </div>
 
         {/* Review Comment */}
-        <p className="text-sm text-gray-700">{review.reviewComment}</p>
+        <p className="text-sm text-base-content/80">{review.reviewComment}</p>
 
         {/* Review Date */}
-        <p className="text-xs text-gray-400">Reviewed on {review.reviewDate}</p>
+        <p className="text-xs text-base-content/50">
+          Reviewed on {review.reviewDate}
+        </p>
         {/* Edit Date */}
         {review?.reviewEditDate && (
-          <p className="text-xs text-gray-400">
+          <p className="text-xs text-base-content/50">
             Edited on {review?.reviewEditDate}
           </p>
         )}
